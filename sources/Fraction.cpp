@@ -161,12 +161,12 @@ namespace ariel {
         return temp;
     }
 
-    ostream &operator<<(ostream &os, const Fraction &obj) {
-        return os << " " << obj.numerator << "/" << obj.denominator;
+    ostream &operator<<(ostream &osb, const Fraction &obj) {
+        return osb << " " << obj.numerator << "/" << obj.denominator;
     }
 
-    istream &operator>>(istream &is, Fraction &obj) {
-        return is >> obj.numerator >> obj.denominator;
+    istream &operator>>(istream &isb, Fraction &obj) {
+        return isb >> obj.numerator >> obj.denominator;
     }
 
 

@@ -71,9 +71,9 @@ namespace  ariel {
 
         Fraction operator--(int);
 
-        friend ostream &operator<<(ostream &os, const Fraction &obj);
+        friend ostream &operator<<(ostream &osb, const Fraction &obj);
 
-        friend istream &operator>>(istream &is, Fraction &obj);
+        friend istream &operator>>(istream &isb, Fraction &obj);
 
     };
 
