@@ -7,61 +7,61 @@ namespace  ariel {
         int numerator;
         int denominator;
 
-        Fraction(int a, int b);
+        Fraction(int numerator, int denominator);
 
-        Fraction operator+(Fraction a);
+        Fraction operator+(Fraction abc);
 
-        Fraction operator+(float a);
+        Fraction operator+(float abc);
 
-        friend Fraction operator+(float a, Fraction f);
+        friend Fraction operator+(float abc, Fraction fgh);
 
-        Fraction operator-(Fraction a);
+        Fraction operator-(Fraction abc);
 
-        Fraction operator-(float a);
+        Fraction operator-(float abc);
 
-        friend Fraction operator-(float a, Fraction f);
+        friend Fraction operator-(float abc, Fraction fgh);
 
-        Fraction operator*(Fraction a);
+        Fraction operator*(Fraction abc);
 
-        Fraction operator*(float);
+        Fraction operator*(float abc);
 
-        friend Fraction operator*(float a, Fraction f);
+        friend Fraction operator*(float abc, Fraction fgh);
 
-        Fraction operator/(Fraction a);
+        Fraction operator/(Fraction abc);
 
-        Fraction operator/(float a);
+        Fraction operator/(float abc);
 
-        friend Fraction operator/(float a, Fraction f);
+        friend Fraction operator/(float abc, Fraction fgh);
 
-        bool operator==(Fraction a);
+        bool operator==(Fraction abc);
 
-        bool operator==(float a);
+        bool operator==(float abc);
 
-        friend bool operator==(float a, Fraction f);
+        friend bool operator==(float abc, Fraction fgh);
 
-        bool operator<=(Fraction a);
+        bool operator<=(Fraction abc);
 
-        bool operator<=(float a);
+        bool operator<=(float abc);
 
-        friend bool operator<=(float a, Fraction f);
+        friend bool operator<=(float abc, Fraction fgh);
 
-        bool operator>=(Fraction a);
+        bool operator>=(Fraction abc);
 
-        bool operator>=(float a);
+        bool operator>=(float abc);
 
-        friend bool operator>=(float a, Fraction f);
+        friend bool operator>=(float abc, Fraction fgh);
 
-        bool operator>(Fraction a);
+        bool operator>(Fraction abc);
 
-        bool operator>(float a);
+        bool operator>(float abc);
 
-        friend bool operator>(float a, Fraction f);
+        friend bool operator>(float abc, Fraction fgh);
 
-        bool operator<(Fraction a);
+        bool operator<(Fraction abc);
 
-        bool operator<(float a);
+        bool operator<(float abc);
 
-        friend bool operator<(float a, Fraction f);
+        friend bool operator<(float abc, Fraction fgh);
 
         Fraction operator++();
 
@@ -78,13 +78,11 @@ namespace  ariel {
     };
 
 
-    int gcd(int a, int b);
+    int gcd(int first, int second);
 
-    int lcm(int a, int b);
+    int lcm(int first, int second);
 
     Fraction floatToFractions(float number);
-
-//    Fraction contraction(Fraction f);
 
 
     }

@@ -5,139 +5,138 @@ using namespace std;
 
 namespace ariel {
 
-    Fraction::Fraction(int a, int b) {
-        if(b == 0)
+    Fraction::Fraction(int numerator, int denominator) {
+        if(denominator == 0)
             throw logic_error("It is impossible to divide by 0");
-        int myGcd = gcd(a, b);
-        this->numerator = a / myGcd;
-        this->denominator = b / myGcd;
+        int myGcd = gcd(numerator, denominator);
+        this->numerator = numerator / myGcd;
+        this->denominator = denominator / myGcd;
     }
 
 
-    Fraction Fraction::operator+(Fraction a) {
-        int d = lcm(this->denominator, a.denominator);
-        int u = (this->numerator * d / this->denominator) + (a.numerator * d / a.denominator);
+    Fraction Fraction::operator+(Fraction abc) {
+        int d = lcm(this->denominator, abc.denominator);
+        int u = (this->numerator * d / this->denominator) + (abc.numerator * d / abc.denominator);
         return Fraction(u, d);
     }
 
-    Fraction Fraction::operator+(float a) {
-        Fraction s = floatToFractions(a);
+    Fraction Fraction::operator+(float abc) {
+        Fraction s = floatToFractions(abc);
         return this->operator+(s);
     }
 
-    Fraction operator+(float a, Fraction f) {
-        return f + a;
+    Fraction operator+(float abc, Fraction fgh) {
+        return fgh + abc;
     }
 
-    Fraction Fraction::operator-(Fraction a) {
-        int d = lcm(this->denominator, a.denominator);
-        int u = (this->numerator * d / this->denominator) - (a.numerator * d / a.denominator);
+    Fraction Fraction::operator-(Fraction abc) {
+        int d = lcm(this->denominator, abc.denominator);
+        int u = (this->numerator * d / this->denominator) - (abc.numerator * d / abc.denominator);
         return Fraction(u, d);
     }
 
-    Fraction Fraction::operator-(float a) {
-        Fraction s = floatToFractions(a);
+    Fraction Fraction::operator-(float abc) {
+        Fraction s = floatToFractions(abc);
         return this->operator-(s);
     }
 
-    Fraction operator-(float a, Fraction f) {
-        return f - a;
+    Fraction operator-(float abc, Fraction fgh) {
+        return fgh - abc;
     }
 
-    Fraction Fraction::operator*(Fraction a) {
-        return Fraction(this->numerator * a.numerator, this->denominator * a.denominator);
+    Fraction Fraction::operator*(Fraction abc) {
+        return Fraction(this->numerator * abc.numerator, this->denominator * abc.denominator);
     }
 
-    Fraction Fraction::operator*(float a) {
-        Fraction s = floatToFractions(a);
+    Fraction Fraction::operator*(float abc) {
+        Fraction s = floatToFractions(abc);
         return this->operator*(s);
     }
 
-    Fraction operator*(float a, Fraction f) {
-        return f * a;
+    Fraction operator*(float abc, Fraction fgh) {
+        return fgh * abc;
     }
 
-    Fraction Fraction::operator/(Fraction a) {
-        return this->operator*(Fraction(a.denominator, a.numerator));
+    Fraction Fraction::operator/(Fraction abc) {
+        return this->operator*(Fraction(abc.denominator, abc.numerator));
     }
 
-    Fraction Fraction::operator/(float a) {
-        Fraction s = floatToFractions(a);
+    Fraction Fraction::operator/(float abc) {
+        Fraction s = floatToFractions(abc);
         return this->operator/(s);
     }
 
-    Fraction operator/(float a, Fraction f) {
-        Fraction s = floatToFractions(a);
-        return s / f;
+    Fraction operator/(float abc, Fraction fgh) {
+        Fraction s = floatToFractions(abc);
+        return s / fgh;
     }
 
-    bool Fraction::operator==(Fraction a) {
-      //  return this->numerator == a.numerator & this->denominator == a.denominator;
-  return ((*this / a).numerator == 1) &  ((*this / a).denominator == 1);
+    bool Fraction::operator==(Fraction abc) {
+        return ((*this / abc).numerator == 1) &  ((*this / abc).denominator == 1);
     }
 
-    bool Fraction::operator==(float a) {
-        Fraction f = floatToFractions(a);
+    bool Fraction::operator==(float abc) {
+        Fraction f = floatToFractions(abc);
         return this->operator==(f);
     }
 
-    bool operator==(float a, Fraction f) {
-        return f == a;
+    bool operator==(float abc, Fraction fgh) {
+        return fgh == abc;
     }
 
-    bool Fraction::operator<=(Fraction a) {
-        return this->operator<(a) or this->operator==(a);
+    bool Fraction::operator<=(Fraction abc) {
+        return this->operator<(abc) or this->operator==(abc);
     }
 
-    bool Fraction::operator<=(float a) {
-        Fraction f = floatToFractions(a);
+    bool Fraction::operator<=(float abc) {
+        Fraction f = floatToFractions(abc);
         return this->operator<=(f);
 
     }
 
-    bool operator<=(float a, Fraction f) {
-        return f >= a;
+    bool operator<=(float abc, Fraction fgh) {
+        return fgh >= abc;
     }
 
-    bool Fraction::operator>=(Fraction a) {
-        return this->operator>(a) or this->operator==(a);
+    bool Fraction::operator>=(Fraction abc) {
+        return this->operator>(abc) or this->operator==(abc);
     }
 
-    bool Fraction::operator>=(float a) {
-        Fraction f = floatToFractions(a);
+    bool Fraction::operator>=(float abc) {
+        Fraction f = floatToFractions(abc);
         return this->operator>=(f);
     }
 
-    bool operator>=(float a, Fraction f) {
-        return f <= a;
+    bool operator>=(float abc, Fraction fgh) {
+        return fgh <= abc;
     }
 
-    bool Fraction::operator>(Fraction a) {
-        int myLcm = lcm(this->denominator, a.denominator);
-        return this->numerator * myLcm / this->denominator > a.numerator * myLcm / a.denominator;
+    bool Fraction::operator>(Fraction abc) {
+        int myLcm = lcm(this->denominator, abc.denominator);
+        return this->numerator * myLcm / this->denominator > abc.numerator * myLcm / abc.denominator;
     }
 
-    bool Fraction::operator>(float a) {
-        Fraction f = floatToFractions(a);
+    bool Fraction::operator>(float abc) {
+        Fraction f = floatToFractions(abc);
         return this->operator>(f);
     }
 
-    bool operator>(float a, Fraction f) {
-        return f < a;
+    bool operator>(float abc, Fraction fgh) {
+        return fgh < abc;
     }
 
-    bool Fraction::operator<(Fraction a) {
-        int myLcm = lcm(this->denominator, a.denominator);
-        return this->numerator * myLcm / this->denominator < a.numerator * myLcm / a.denominator;
+    bool Fraction::operator<(Fraction abc) {
+        int myLcm = lcm(this->denominator, abc.denominator);
+        return this->numerator * myLcm / this->denominator < abc.numerator * myLcm / abc.denominator;
     }
 
-    bool Fraction::operator<(float a) {
-        Fraction f = floatToFractions(a);
+    bool Fraction::operator<(float abc) {
+        Fraction f = floatToFractions(abc);
         return this->operator<(f);
     }
 
-    bool operator<(float a, Fraction f) {
-        return f > a;
+    bool operator<(float abc, Fraction fgh) {
+        return fgh > abc;
     }
 
     Fraction Fraction::operator++() {
@@ -171,14 +170,14 @@ namespace ariel {
     }
 
 
-    int gcd(int a, int b) {
-        if (b == 0)
-            return a;
-        return ariel::gcd(b, a % b);
+    int gcd(int first, int second) {
+        if (second == 0)
+            return first;
+        return ariel::gcd(second, first % second);
     }
 
-    int lcm(int a, int b) {
-        return abs(a * b) / ariel::gcd(a, b);
+    int lcm(int first, int second) {
+        return abs(first * second) / ariel::gcd(first, second);
     }
 
     Fraction floatToFractions(float number) {
@@ -191,10 +190,3 @@ namespace ariel {
     }
 }
 
-//Fraction contraction(Fraction a){
-//    int myGcd = ariel::gcd(a.numerator , a.denominator);
-//    a.numerator /= myGcd;
-//    a.denominator /= myGcd;
-//    return a;
-//
-//}
