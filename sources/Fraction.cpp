@@ -208,7 +208,6 @@ namespace ariel {
         return osb  << obj.numerator << "/" << obj.denominator;
     }
 
-
     istream &operator>>(istream &isb, Fraction &obj) {
 
         isb >> obj.numerator >> obj.denominator;
