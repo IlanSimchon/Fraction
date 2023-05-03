@@ -3,11 +3,15 @@ using namespace  std;
 namespace  ariel {
 
     class Fraction {
-    public:
+    private:
         int numerator;
         int denominator;
-
+    public:
         Fraction(int numerator, int denominator);
+
+        Fraction(float frac);
+
+        Fraction();
 
         Fraction operator+(Fraction abc);
 
@@ -33,31 +37,35 @@ namespace  ariel {
 
         friend Fraction operator/(float abc, Fraction fgh);
 
-        bool operator==(Fraction abc);
+        bool operator==(const Fraction &abc) const;
 
         bool operator==(float abc);
 
         friend bool operator==(float abc, Fraction fgh);
 
-        bool operator<=(Fraction abc);
+        bool operator!=(const Fraction &abc) const;
+
+        friend bool operator!=(float abc,  Fraction fgh);
+
+        bool operator<=(const Fraction &abc) const;
 
         bool operator<=(float abc);
 
         friend bool operator<=(float abc, Fraction fgh);
 
-        bool operator>=(Fraction abc);
+        bool operator>=(const Fraction &abc) const;
 
         bool operator>=(float abc);
 
         friend bool operator>=(float abc, Fraction fgh);
 
-        bool operator>(Fraction abc);
+        bool operator>(const Fraction &abc) const;
 
         bool operator>(float abc);
 
         friend bool operator>(float abc, Fraction fgh);
 
-        bool operator<(Fraction abc);
+        bool operator<(const Fraction &abc) const;
 
         bool operator<(float abc);
 
@@ -75,8 +83,19 @@ namespace  ariel {
 
         friend istream &operator>>(istream &isb, Fraction &obj);
 
+        int getNumerator();
+
+        int getDenominator();
+
     };
 
+    bool add_overflow(int first , int second);
+
+    bool sub_overflow(int first, int second);
+
+    bool mul_overflow(Fraction abc ,  Fraction cbd);
+
+    bool div_overflow(Fraction abc ,  Fraction cbd);
 
     int gcd(int first, int second);
 
@@ -84,5 +103,5 @@ namespace  ariel {
 
     Fraction floatToFractions(float number);
 
-
     }
+
